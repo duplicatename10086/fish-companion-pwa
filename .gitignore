@@ -1,0 +1,42 @@
+# 你的私人配置（含本机路径等）
+/config.json
+
+# 密钥与运行产生的秘密
+/secrets/*
+!/secrets/.gitkeep
+
+# 运行日志、备份、快照
+/logs/
+/backup/
+/snapshots/
+
+# 由 scripts/render.py 按 config 生成的启动脚本（不入库，用户本地生成）
+/启动器.hta
+/start-gateway.bat
+/stop-gateway.bat
+/start-model.bat
+/stop-model.bat
+
+# 你自己放进去的头像原图与成品图标（示例头像除外）
+/avatars/
+/dist-build/
+
+# 个人人设与记忆（setup 生成，不入库）
+/persona/人设.md
+/persona/记忆.md
+
+# AstrBot / 本地模型运行环境（体积大，不入库）
+/venv/
+/astrbot-data/
+/models/
+
+# Python / 编辑器
+__pycache__/
+*.py[cod]
+.vscode/
+.idea/
+.DS_Store
+
+# Windows
+Thumbs.db
+desktop.ini

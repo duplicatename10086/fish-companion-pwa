@@ -1,0 +1,6 @@
+{
+  "_说明": "可选：改完重启 AstrBot。锁文案和默认用户名也可留空用代码里的通用默认值。",
+  "author": "Companion",
+  "default_user": "主人",
+  "lock_message": "🐟 正在搬砖中，暂时不聊天～（误触请发送 /work_force_end 唤醒）"
+}

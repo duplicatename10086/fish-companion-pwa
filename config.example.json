@@ -1,0 +1,72 @@
+{
+  "_说明": "复制本文件为 config.json 后按你的情况修改。所有脚本都读这一份配置。带 _ 的键是注释，可忽略或删除。",
+
+  "character": {
+    "_说明": "你的 AI 伴侣叫什么、怎么称呼你。persona_id 不要用 default（AstrBot 的 webchat 会丢弃系统默认人格）。",
+    "name": "小鲸",
+    "persona_id": "小鲸",
+    "description": "一只爱睡觉的蓝色大肥鱼",
+    "call_user": "主人"
+  },
+
+  "branding": {
+    "_说明": "手机 PWA 的外观。avatar 换成你自己的图片（png/jpg 均可），脚本会自动生成各尺寸图标。",
+    "app_name": "哦小鲸",
+    "theme_color": "#1b2340",
+    "avatar": "examples/avatar/default-avatar.png",
+    "auto_transparent": true,
+    "maskable_scale": 0.76
+  },
+
+  "astrbot": {
+    "_说明": "AstrBot 网关。管理密码不要写在这里，用环境变量 ASTRBOT_PWD（setup 向导会提示你设置）。",
+    "base_url": "http://127.0.0.1:6185",
+    "admin_user": "astrbot",
+    "admin_password_env": "ASTRBOT_PWD",
+    "data_dir": "astrbot-data",
+    "venv_python": "venv/Scripts/python.exe",
+    "venv_astrbot": "venv/Scripts/astrbot.exe"
+  },
+
+  "ports": {
+    "astrbot": 6185,
+    "local_model": 8088
+  },
+
+  "model": {
+    "_说明": "mode 取值 local 或 cloud。local 用本机 llama.cpp，cloud 用云端 API。fallback=false 表示本地挂了就报错、不偷偷切云端。",
+    "mode": "local",
+    "fallback": false,
+    "local": {
+      "provider_id": "local-qwen3",
+      "model_id": "bonsai2-abl",
+      "aliases": "bonsai2-abl,jingyun",
+      "llama_server": "E:/lm/llama/llama-server.exe",
+      "gguf": "E:/lm/models/Qwen3-8B-Q4_K_M.gguf",
+      "host": "127.0.0.1",
+      "port": 8088,
+      "context": 8192,
+      "ngl": 99,
+      "extra_flags": "--jinja -rea off",
+      "_extra_flags说明": "Qwen3 用 --jinja -rea off（关思考）。别的模型可改成 --jinja 或留空。",
+      "log": "E:/lm/logs/llama-server.log",
+      "wait_seconds": 90
+    },
+    "cloud": {
+      "provider_id": "deepseek",
+      "model_id": "deepseek-flash"
+    }
+  },
+
+  "workmode": {
+    "_说明": "工作模式：一条命令把 AI 锁住不聊天。lock_message 是锁着时的回复文案。",
+    "enabled": true,
+    "lock_message": "🐟 我正在搬砖中，暂时不聊天～（误触请在 DSH 发送 /work_force_end 唤醒）"
+  },
+
+  "persona": {
+    "identity_file": "persona/人设.md",
+    "memory_file": "persona/记忆.md",
+    "sync_default_too": true
+  }
+}
